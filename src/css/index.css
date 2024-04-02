@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
+p, button, input {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+
+button.white {
+  border-style: solid;
+  border-width: 0px;
+  border-color: gray;
+  padding: 10px 40px 10px;
+  transition: ease 150ms;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button.white:hover {
+  background-color: #dddddd;
+  cursor: pointer;
+}
+
+button.dark {
+  border-style: solid;
+  border-width: 0px;
+  border-color: gray;
+  background-color: #467750;
+  padding: 10px 40px 10px;
+  transition: ease 150ms;
+  color: rgb(228, 228, 228);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button.dark:hover {
+  background-color: #2d5134;
+  cursor: pointer;
+}
