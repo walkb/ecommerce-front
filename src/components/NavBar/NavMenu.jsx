@@ -1,7 +1,7 @@
 
 import MenuChildren from "./MenuChildren"
 
-export default function NavMenu({submenu, display}) {
+export default function NavMenu({submenu, display, clickFunc}) {
     let style = {display: "none"}
     if (display) {
         style = {display: "flex"}
@@ -12,7 +12,7 @@ export default function NavMenu({submenu, display}) {
                 return (
                     <div key={index} className="section">
                         <h3>{category.heading}</h3>
-                        <MenuChildren children={category.children}></MenuChildren>
+                        <MenuChildren clickFunc={clickFunc} children={category.children}></MenuChildren>
                     </div>
                 )
             })}

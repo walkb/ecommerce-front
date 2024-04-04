@@ -1,6 +1,6 @@
 export const navData = [
     {
-        title: "Home",
+        title: "Home Goods",
         link: "/",
         submenu: [
             {
@@ -8,11 +8,11 @@ export const navData = [
                 children: [
                     {
                         title: "Smartphones",
-                        link: "/"
+                        link: "/smartphones"
                     },
                     {
                         title: "Laptops",
-                        link: "/"
+                        link: "/laptops"
                     }
                 ]
             },
@@ -21,15 +21,15 @@ export const navData = [
                 children: [
                     {
                         title: "Decor",
-                        link: "/"
+                        link: "/home-decoration"
                     },
                     {
                         title: "Furniture",
-                        link: "/"
+                        link: "/furniture"
                     },
                     {
                         title: "Lighting",
-                        link: "/"
+                        link: "/lighting"
                     }
                 ]
             },
@@ -38,11 +38,11 @@ export const navData = [
                 children: [
                     {
                         title: "Automotive",
-                        link: "/"
+                        link: "/automotive"
                     },
                     {
                         title: "Motorcycle",
-                        link: "/"
+                        link: "/motorcycle"
                     }
                 ]
             }
@@ -57,15 +57,15 @@ export const navData = [
                 children: [
                     {
                         title: "Shirts",
-                        link: "/"
+                        link: "/mens-shirts"
                     },
                     {
                         title: "Shoes",
-                        link: "/"
+                        link: "/mens-shoes"
                     },
                     {
                         title: "Watches",
-                        link: "/"
+                        link: "/mens-watches"
                     }
                 ]
             },
@@ -73,24 +73,24 @@ export const navData = [
                 heading: "Women",
                 children: [
                     {
-                        title: "Shirts",
-                        link: "/"
+                        title: "Dresses",
+                        link: "/womens-dresses"
                     },
                     {
                         title: "Shoes",
-                        link: "/"
+                        link: "/womens-shoes"
                     },
                     {
                         title: "Watches",
-                        link: "/"
+                        link: "/womens-watches"
                     },
                     {
                         title: "Bags",
-                        link: "/"
+                        link: "/womens-bags"
                     },
                     {
                         title: "Jewellery",
-                        link: "/"
+                        link: "/womens-jewellery"
                     }
                 ]
             }
@@ -105,7 +105,7 @@ export const navData = [
                 children: [
                     {
                         title: "Skincare",
-                        link: "/"
+                        link: "/skincare"
                     }
                 ]
             },
@@ -114,7 +114,7 @@ export const navData = [
                 children: [
                     {
                         title: "Fragrances",
-                        link: "/"
+                        link: "/fragrances"
                     }
                 ]
             }

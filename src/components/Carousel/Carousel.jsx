@@ -1,7 +1,7 @@
 import {useState, useEffect, useRef} from "react";
 import {Link} from "react-router-dom";
 import "src/css/Carousel.css";
-import "src/css/index.css";
+import "src/css/main.css";
 import CarouselCard from "./CarouselCard"
 
 
@@ -9,6 +9,7 @@ import CarouselCard from "./CarouselCard"
 // REQUIRES: delayTime, an integer >= 500
 //           transitionTime, an integer >= 250 and no more than half of delayTime
 //           panels, an integer that represents how many panels to be shown on screen at a time
+// This could easily be modified to include a functor input to make it more customizable.
 export default function Carousel({delayTime, transitionTime, panels}) {
     const [index, setIndex] = useState(0);
 
@@ -25,7 +26,7 @@ export default function Carousel({delayTime, transitionTime, panels}) {
     const sliderStyle = {transition: `ease ${sliderTime}ms`, transform: `translate3d(${-index * 100 / visiblePanels}%, 0, 0)`}
 
     // panel width depending on input number of panels
-    const panelWidth = {width: `${100 / visiblePanels}%`}
+    const panelWidth = 100 / visiblePanels;
 
     // slider() sets a delayed transition for the carousel slider window
     function slider() {
@@ -69,7 +70,8 @@ export default function Carousel({delayTime, transitionTime, panels}) {
                 {colors.map((backgroundColor, index) => (
                     <CarouselCard 
                         key={index}
-                        style={Object.assign({}, {'backgroundColor': backgroundColor}, panelWidth)}>
+                        backgroundColor={backgroundColor}
+                        defaultWidth={panelWidth}>
                     </CarouselCard>
                 ))}
             </div>

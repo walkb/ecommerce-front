@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, Form, redirect } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import "src/css/NavBar.css"
 import { navData } from "./NavData"
 import NavMenu from "./NavMenu"
-
+import logo from "src/assets/treeicon.png"
+import searchIcon from "src/assets/search.png"
+import cart from "src/assets/cart.png"
 
 // Used as the navigation bar header for the website
 // Uses hidden NavMenus -> MenuChildren
@@ -24,17 +26,17 @@ export default function NavBar() {
     useEffect(() => {
         window.addEventListener("scroll", () => {
             var scroll = window.scrollY;
-            console.log(lastScroll.current, " ", scroll)
+            // console.log(lastScroll.current, " ", scroll)
             if (scroll > lastScroll.current + scrollDistanceRequired && scroll > 64 && visible) {
                 // scrolling down, so remove navbar
                 setVisible(false)
-                console.log("he down")
+                // console.log("he down")
                 lastScroll.current = scroll;
             }
             else if (scroll < lastScroll.current && !visible) {
                 // scrolling up or at top
                 setVisible(true)
-                console.log("he up")
+                // console.log("he up")
                 lastScroll.current = scroll;
             }
         }) 
@@ -52,7 +54,7 @@ export default function NavBar() {
         <div className="navbar" style={visible == true ? visibleStyle : invisibleStyle}>
             <div className="navleft">
                 <Link to={'/'}>
-                    <img style={{width: '48px'}} src="src/assets/treeicon.png"></img>
+                    <img style={{width: '48px'}} src={logo}></img>
                 </Link>
                 {/* Menu data */}
                 {navData.map((category, index) => {
@@ -65,17 +67,18 @@ export default function NavBar() {
                             submenu={category.submenu} 
                             display={menu === category.title ? true : false}
                             onMouseEnter={() => {handleMouseEnter(category.title)}} 
-                            onMouseLeave={() => {handleMouseLeave()}}></NavMenu>
+                            onMouseLeave={() => {handleMouseLeave()}}
+                            clickFunc={() => {handleMouseLeave()}}></NavMenu>
                         </div>
                     )
                 })}
             </div>
             <div className="navright">
-                <form>
-                    <input type="text" placeholder="Search"></input>
-                    <button id="submit"><img id="submiticon" src="src/assets/search.png"></img></button>
-                </form>
-                <Link><img id="cart" src="src/assets/cart.png"></img></Link>
+                <Form method="get" id="search-form">
+                    <input name="search" type="text" placeholder="Search"></input>
+                    <button type="submit" id="submit"><img id="submiticon" src={searchIcon}></img></button>
+                </Form>
+                <Link><img id="cart" src={cart}></img></Link>
             </div>
         </div>
     )

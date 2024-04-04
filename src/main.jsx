@@ -4,9 +4,12 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./css/index.css";
-import Root from "./routes/root";
+import "./css/main.css";
+import Index from "./routes/index";
+import Root, {loader as rootLoader} from "./routes/root";
 import ErrorPage from "./error-page";
+import Catalog, { loader as catalogLoader } from "./routes/catalog";
+import {loader as searchLoader} from "./routes/search"
 
 
 const router = createBrowserRouter([
@@ -14,6 +17,20 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: rootLoader,
+    children: [
+      { index: true, element: <Index /> },
+      {
+        path: ":category",
+        element: <Catalog />,
+        loader: catalogLoader
+      },
+      {
+        path: "/search/:query",
+        element: <Catalog />,
+        loader: searchLoader
+      }
+    ]
   },
 ]);
 

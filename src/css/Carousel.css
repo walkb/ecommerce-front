@@ -8,6 +8,7 @@
     margin: 0 auto;
     overflow: hidden;
     max-width: 100vw;
+    height: 420px;
 }
 
 .carouselSlider {
@@ -17,6 +18,12 @@
 .carouselCard {
     display: inline-block;
     height: 400px;
+    transition: ease 200ms;
+    /* filter:saturate(100%); */
+}
+
+.carouselCard:hover {
+    filter:saturate(120%);
 }
 
 .carouselInformation {
