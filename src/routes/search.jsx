@@ -6,8 +6,9 @@ function isCategory(input) {
     return categories.some((category) => category.name == input.toLowerCase())
 }
 
-export async function loader({ params }) {
-    // console.log(params);
+export async function loader({ params, request }) {
+    const url = new URL(request.url);
+    const p = url.searchParams.get("p");
     const query = params.query;
     var items, name;
     if (isCategory(query)) {

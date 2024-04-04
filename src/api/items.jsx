@@ -10,7 +10,7 @@ export async function getItems(category) {
         return;
     }
     return new Promise((resolve, reject) => {
-        fetch(`https://dummyjson.com/products/category/${category}`)
+        fetch(`https://dummyjson.com/products/category/${category}/?limit=0`)
         .then(handleResponse)
         .then(data => resolve(data))
         .catch(error => {
@@ -25,7 +25,7 @@ export async function searchItems(query) {
         return;
     }
     return new Promise((resolve, reject) => {
-        fetch(`https://dummyjson.com/products/search/?q=${query}`)
+        fetch(`https://dummyjson.com/products/search/?q=${query}&limit=0`)
         .then(handleResponse)
         .then(data => resolve(data))
         .catch(error => {
