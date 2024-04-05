@@ -63,12 +63,13 @@ export default function NavBar() {
                             <Link to={category.link}>
                                 <p className="category" onMouseEnter={() => {handleMouseEnter(category.title)}}>{category.title}</p>
                                 </Link>
-                            <NavMenu 
-                            submenu={category.submenu} 
-                            display={menu === category.title ? true : false}
-                            onMouseEnter={() => {handleMouseEnter(category.title)}} 
-                            onMouseLeave={() => {handleMouseLeave()}}
-                            clickFunc={() => {handleMouseLeave()}}></NavMenu>
+                            {typeof(category.submenu) != "undefined" && <NavMenu 
+                                submenu={category.submenu} 
+                                display={menu === category.title ? true : false}
+                                onMouseEnter={() => {handleMouseEnter(category.title)}} 
+                                onMouseLeave={() => {handleMouseLeave()}}
+                                clickFunc={() => {handleMouseLeave()}}></NavMenu>
+                            }
                         </div>
                     )
                 })}

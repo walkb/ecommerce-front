@@ -10,17 +10,16 @@ import "src/css/catalog.css";
 // -------------------- LOADER ----------------------------------------------------------------------]
 export async function loader({ params, request }) {
     const url = new URL(request.url);
-    if (isCategory(params.category)) {
-        const category = params.category.toLowerCase();
+    const category = params.category.toLowerCase();
+    if (isCategory(category)) {
         var items = await getItems(category);
         const name = getDisplayName(category);
-        if (params.rule == "price-asc") {
-            items = sortByKey(items, price);
-        }
-        else if (params.rule == "price-desc") {
-            items = sortByKey(items, price, true)
-        }
-        return {name: name, items: items};
+        return {name: name, items: sortBy(items, params.rule)};
+    }
+    else if (category == "browse") {
+        var items = await getItems(category);
+        const name = "All"
+        return {name: name, items: sortBy(items, params.rule)}
     }
     return {name: params.category, items: {total: 0}};
 }
@@ -28,15 +27,15 @@ export async function loader({ params, request }) {
 
 // --------- HELPER FUNCS -----------------------------------------------------------------------
 
-// sortBy(list, func) takes a list and sorts by key in ascending order, reverse = true for descending
+// sort(list, func) takes a list and sorts by key in ascending order, reverse = true for descending
 // input should not be the entire response body returned by API call, but the array of products
-function sortByKey(list, sort, reverse) {
+function sortBy(list, sort) {
     let key = "price"
     if (sort != "price-asc" && sort != "price-desc") return list;
     let new_list = list.sort((a, b) => {
         var x = a[key];
         var y = b[key];
-        if (reverse === true) {
+        if (sort == "price-desc") {
             return ((x > y) ? -1 : ((x < y) ? 1 : 0))
         }
         return ((x < y) ? -1 : ((x > y) ? 1 : 0))
@@ -83,16 +82,14 @@ export default function Catalog() {
                     <select>
                         <option value="default">Sort by</option>
                         <option value="price-asc">Price Low/High</option>
-                        <option value="prise-desc">Price High/Low</option>
+                        <option value="price-desc">Price High/Low</option>
                     </select>
                 </Form>
             </div>
             {items.total != 0 ? (
                 <div className="items">
-                    {sortByKey(items.products.slice(0, (page - 1) * itemsPerPage + itemsPerPage), sort).map((item) => {return (
-                        <>
-                            <CatalogItem item={item}></CatalogItem>
-                        </>
+                    {(sortBy(items.products, sort)).slice(0, ((page - 1) * itemsPerPage + itemsPerPage)).map((item) => {return (
+                        <CatalogItem key={item.id} item={item}></CatalogItem>
                     )
                     })}
                 </div>

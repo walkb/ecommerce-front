@@ -9,6 +9,17 @@ export async function getItems(category) {
     if (typeof(category) == "undefined") {
         return;
     }
+    if (category == "browse") {
+        return new Promise((resolve, reject) => {
+            fetch("https://dummyjson.com/products/?limit=0")
+            .then(handleResponse)
+            .then(data => resolve(data))
+            .catch(error => {
+                console.log(error)
+                reject(error)
+            })
+        })
+    }
     return new Promise((resolve, reject) => {
         fetch(`https://dummyjson.com/products/category/${category}/?limit=0`)
         .then(handleResponse)

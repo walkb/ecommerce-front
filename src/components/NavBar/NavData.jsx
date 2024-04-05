@@ -1,5 +1,9 @@
 export const navData = [
     {
+        title: "Catalog",
+        link: "/browse"
+    },
+    {
         title: "Home Goods",
         link: "/",
         submenu: [

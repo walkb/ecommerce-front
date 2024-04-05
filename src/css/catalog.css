@@ -40,6 +40,11 @@
 
 .itemImageSmall {
     width: 100%;
+    transition: all 250ms;
+}
+
+.itemImageSmall:hover {
+    filter:hue-rotate(45deg);
 }
 
 .itemName {
