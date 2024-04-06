@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar/NavBar"
 import { Outlet, redirect } from "react-router-dom";
+import Footer from "/src/components/Footer/Footer"
 import { useState } from "react";
 
 export async function loader({ request }) {
@@ -18,6 +19,8 @@ export default function Root() {
       <NavBar></NavBar>
       <div className="spacer" style={{height: "64px"}}></div>
       <Outlet></Outlet>
+      <div className="spacer" style={{height: "40vh"}}></div>
+      <Footer></Footer>
     </>
     );
   }

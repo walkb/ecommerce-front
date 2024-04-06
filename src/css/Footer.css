@@ -1,0 +1,42 @@
+.FooterDivider {
+    background-color: #274830;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+}
+
+.FooterDivider * {
+    font-size: 18px;
+}
+
+
+.Footer {
+    width: 100%;
+    height: 20vh;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Footer div {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+}
+
+.Footer p, .Footer a {
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.Footer a {
+    font-size: smaller;
+}
+
+.bold {
+    font-weight: bold;
+}
