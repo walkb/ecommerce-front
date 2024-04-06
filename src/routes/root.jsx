@@ -19,7 +19,6 @@ export default function Root() {
       <NavBar></NavBar>
       <div className="spacer" style={{height: "64px"}}></div>
       <Outlet></Outlet>
-      <div className="spacer" style={{height: "40vh"}}></div>
       <Footer></Footer>
     </>
     );

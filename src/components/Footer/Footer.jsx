@@ -3,6 +3,7 @@ import "src/css/Footer.css"
 export default function Footer() {
     return (
         <>
+        <div className="spacer" style={{height: "40vh"}}></div>
         <div className="FooterDivider">
             <p>Committed to making a difference and writing mission statements.</p>
         </div>
