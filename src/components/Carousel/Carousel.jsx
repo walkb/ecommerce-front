@@ -60,7 +60,7 @@ export default function Carousel({delayTime, transitionTime, panels}) {
                 <h2 className="carouselHeader">CAROUSEL</h2>
                 <p className="carouselText" style={{width: `${60 / visiblePanels}vw`}}>Used to display images of products. Will pause on hover.</p>
                 <div className="carouselButtons">
-                    <Link>
+                    <Link to="/browse">
                         <button className="white">Shop now</button>
                     </Link>
                 </div>

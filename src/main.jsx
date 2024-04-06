@@ -9,7 +9,9 @@ import Index from "./routes/index";
 import Root, {loader as rootLoader} from "./routes/root";
 import ErrorPage from "./error-page";
 import Catalog, { loader as catalogLoader } from "./routes/catalog";
+import ProductPage, {loader as productLoader} from "./routes/product";
 import {loader as searchLoader} from "./routes/search"
+import Cart, {loader as cartLoader} from "./routes/cart"
 
 
 const router = createBrowserRouter([
@@ -29,6 +31,16 @@ const router = createBrowserRouter([
         path: "/search/:query",
         element: <Catalog />,
         loader: searchLoader
+      },
+      {
+        path: "/products/:productId",
+        element: <ProductPage />,
+        loader: productLoader
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+        loader: cartLoader
       }
     ]
   },

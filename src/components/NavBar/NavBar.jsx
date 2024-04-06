@@ -79,7 +79,12 @@ export default function NavBar() {
                     <input name="search" type="text" placeholder="Search"></input>
                     <button type="submit" id="submit"><img id="submiticon" src={searchIcon}></img></button>
                 </Form>
-                <Link><img id="cart" src={cart}></img></Link>
+                <Link to={"/cart"}>
+                <div>
+                    <img id="cart" src={cart}></img>
+                    {/* <p>{totalProducts}</p> */}
+                </div>
+                </Link>
             </div>
         </div>
     )

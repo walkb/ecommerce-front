@@ -33,8 +33,13 @@ function sortBy(list, sort) {
     let key = "price"
     if (sort != "price-asc" && sort != "price-desc") return list;
     let new_list = list.sort((a, b) => {
-        var x = a[key];
-        var y = b[key];
+        var discount_x = a["discountPercentage"] >= 10.00 ? a["discountPercentage"] / 100 : 0
+        var discount_y = b["discountPercentage"] >= 10.00 ? b["discountPercentage"] / 100 : 0
+        var x = a[key] - a[key] * discount_x;
+        var y = b[key] - b[key] * discount_y;
+        console.log(x)
+        console.log(y)
+        console.log("---")
         if (sort == "price-desc") {
             return ((x > y) ? -1 : ((x < y) ? 1 : 0))
         }
@@ -50,6 +55,9 @@ function isCategory(input) {
 
 // getDisplayName gets the proper display name for a category based on input, should be used after isCategory
 export function getDisplayName(input) {
+    if (typeof(input) == "undefined") {
+        return "Loading..."
+    }
     const category = categories.find(category => category.name == input.toLowerCase());
     return category ? category.displayName : null
 }

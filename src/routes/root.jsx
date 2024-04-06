@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar/NavBar"
 import { Outlet, redirect } from "react-router-dom";
+import { useState } from "react";
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -11,13 +12,13 @@ export async function loader({ request }) {
 }
 
 export default function Root() {
-
-    return (
-      <>
-        <NavBar></NavBar>
-        <div className="spacer" style={{height: "64px"}}></div>
-        <Outlet></Outlet>
-      </>
+  // const [cart, setCart] = useState({totalProducts: 0});
+  return (
+    <>
+      <NavBar></NavBar>
+      <div className="spacer" style={{height: "64px"}}></div>
+      <Outlet></Outlet>
+    </>
     );
   }
 
